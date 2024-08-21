@@ -10,13 +10,11 @@ public class Player : MonoBehaviour
     public float forceJump = 20f;
     public Vector2 friction = new Vector2(.1f, 0);
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         HandleMovement();
