@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: KaushanScript-Regular SDF
+  m_Name: KaushanScript-Regular SDF font escolhido
   m_EditorClassIdentifier: 
   hashCode: 1262500770
   material: {fileID: 4599189689539628399}
