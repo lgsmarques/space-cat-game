@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
         HandleJump();
     }
 
+    #region Movimento
     private bool IsGrounded()
     {
         Debug.DrawRay(transform.position, -Vector2.up, Color.magenta, disToGround + spaceToGround);
@@ -78,4 +79,24 @@ public class Player : MonoBehaviour
             myRigidbody.velocity = Vector2.up * forceJump;
         }
     }
+    #endregion
+
+
+    #region Movimento da Plataforma
+
+    //private Vector3 speedVector;
+    //private Vector3 externalMovement = Vector3.zero;
+
+    //public void AddExternalMovement(Vector3 movement)
+    //{
+    //    externalMovement += movement;
+    //}
+
+    //private void FixedUpdate()
+    //{
+    //    myRigidbody.MovePosition(speedVector * Time.deltaTime + externalMovement);
+    //    externalMovement = Vector3.zero;
+    //}
+
+    #endregion
 }
