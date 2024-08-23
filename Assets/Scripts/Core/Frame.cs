@@ -7,6 +7,9 @@ public class Frame : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.LoadLevel(SceneManager.GetActiveScene().name);
+        }
     }
 }
