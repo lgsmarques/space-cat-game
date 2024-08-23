@@ -15,4 +15,33 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(s);
     }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void AfterPause()
+    {
+        Time.timeScale = 1;
+    }
+
+    #region ScreePause
+    [Header("Screen Pause")]
+    public GameObject screenPause;
+
+    void Update()
+    {
+        ESCPause();
+    }
+
+    void ESCPause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            screenPause.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+    #endregion
 }
