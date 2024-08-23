@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public float disToGround;
     public float spaceToGround = .1f;
 
+    public Transform positionTransform;
 
     private void Awake()
     {
@@ -29,6 +30,12 @@ public class Player : MonoBehaviour
             disToGround = collider2D.bounds.extents.y;
         }
     }
+
+    private void Start()
+    {
+        positionTransform = GetComponent<Transform>();
+    }
+
     void Update()
     {
         IsGrounded();
@@ -79,24 +86,5 @@ public class Player : MonoBehaviour
             myRigidbody.velocity = Vector2.up * forceJump;
         }
     }
-    #endregion
-
-
-    #region Movimento da Plataforma
-
-    //private Vector3 speedVector;
-    //private Vector3 externalMovement = Vector3.zero;
-
-    //public void AddExternalMovement(Vector3 movement)
-    //{
-    //    externalMovement += movement;
-    //}
-
-    //private void FixedUpdate()
-    //{
-    //    myRigidbody.MovePosition(speedVector * Time.deltaTime + externalMovement);
-    //    externalMovement = Vector3.zero;
-    //}
-
     #endregion
 }
