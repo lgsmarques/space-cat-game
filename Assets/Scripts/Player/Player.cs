@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
 
     public Transform positionTransform;
 
+    Vector3 parentScale;
+    Vector3 selfScale;
+    Vector3 scale;
+
     private void Awake()
     {
         if (collider2D != null)
@@ -81,7 +85,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
         {
             myRigidbody.velocity = Vector2.up * forceJump;
         }

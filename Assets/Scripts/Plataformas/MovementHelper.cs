@@ -27,11 +27,6 @@ public class MovementHelper : MonoBehaviour
         {
             var nextPosition = Vector3.Lerp(initialPosition, positions[_index].transform.position, (time / duration));
 
-            //if (player != null)
-            //{
-            //    player.AddExternalMovement(nextPosition - transform.position);
-            //}
-
             transform.position = nextPosition;
             time += Time.deltaTime;
         }
@@ -45,15 +40,15 @@ public class MovementHelper : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!other.CompareTag("Player")) return;
-        player = other.GetComponent<Player>();
+        if (!collision.gameObject.CompareTag("Player")) return;
+        collision.transform.parent = transform;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (!other.CompareTag("Player")) return;
-        player = null;
+        if (!collision.gameObject.CompareTag("Player")) return;
+        collision.transform.parent = null;
     }
 }
