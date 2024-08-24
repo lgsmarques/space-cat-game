@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         IsGrounded();
         HandleMovement();
         HandleJump();
+        HandleAnimation();
     }
 
     #region Movimento
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
-            animator.SetBool(boolRun, true);
+            //animator.SetBool(boolRun, true);
 
             if (myRigidbody.transform.localScale.x != -1)
             {
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
-            animator.SetBool(boolRun, true);
+            //animator.SetBool(boolRun, true);
 
             if (myRigidbody.transform.localScale.x != 1)
             {
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            animator.SetBool(boolRun, false);
+            
         }
 
     
@@ -106,8 +107,39 @@ public class Player : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
         {
             myRigidbody.velocity = Vector2.up * forceJump;
-            animator.SetBool(boolsaltar, true);
         }
     }
     #endregion
+
+    private void HandleAnimation()
+    {
+        if (AlmostZero(myRigidbody.velocity.x) && !animator.GetBool(boolsaltar))
+        {
+            animator.SetBool(boolRun, false);
+        }
+        else
+        {
+            animator.SetBool(boolRun, true);
+        }
+
+        if (AlmostZero(myRigidbody.velocity.y) && IsGrounded())
+        {
+            animator.SetBool(boolsaltar, false);
+        }
+        else
+        {
+            animator.SetBool(boolRun, false);
+            animator.SetBool(boolsaltar, true);
+        }
+    }
+
+    private bool AlmostZero(float i)
+    {
+        if (i < 1f && i > -1f)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
