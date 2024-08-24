@@ -2943,6 +2943,14 @@ PrefabInstance:
       propertyPath: screenPause
       value: 
       objectReference: {fileID: 751254723}
+    - target: {fileID: 1058634537814658914, guid: 14c8e2c957ee9b846802f985b0421388, type: 3}
+      propertyPath: collidersParaAtivar.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058634537814658914, guid: 14c8e2c957ee9b846802f985b0421388, type: 3}
+      propertyPath: collidersParaDesativar.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5012387629384884744, guid: 14c8e2c957ee9b846802f985b0421388, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -3078,12 +3086,16 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 854861559}
+    - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: forceJump
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: friction.x
-      value: 0.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: spaceToGround
@@ -3091,6 +3103,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: initialPosition
+      value: 
+      objectReference: {fileID: 854861554}
+    - target: {fileID: 2383587451948310591, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
+      propertyPath: positionTransform
       value: 
       objectReference: {fileID: 854861554}
     - target: {fileID: 2802424816533131707, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
@@ -3116,7 +3132,7 @@ PrefabInstance:
     - target: {fileID: 5829435455628613562, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1b322d7e4143b7e439c53136fc8485ed, type: 3}
+      objectReference: {fileID: 21300000, guid: 5b0a4e9393e117445ac49ae09c3b029f, type: 3}
     - target: {fileID: 7047362349000708258, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3166,8 +3182,16 @@ PrefabInstance:
       value: MainCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 7991449428909069460, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991449428909069460, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991449428909069460, guid: 2b989638db01dbe40b8ba4f57abe3929, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6049,6 +6073,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1323544838}
+    - target: {fileID: 6661602936638079807, guid: b2398fc2a0bc27c498c43991f66d7f95, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661602936638079807, guid: b2398fc2a0bc27c498c43991f66d7f95, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0024414062
+      objectReference: {fileID: 0}
     - target: {fileID: 8792089572639075028, guid: b2398fc2a0bc27c498c43991f66d7f95, type: 3}
       propertyPath: m_Name
       value: Canvas
