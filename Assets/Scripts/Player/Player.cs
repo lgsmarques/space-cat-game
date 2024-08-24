@@ -21,6 +21,14 @@ public class Player : MonoBehaviour
     public float disToGround;
     public float spaceToGround = .1f;
 
+    [Header("Animator")]
+    public Animator animator;
+    public string boolRun = "movendo";
+    public string boolsaltar = "saltar";
+
+    
+
+
     public Transform positionTransform;
 
     Vector3 parentScale;
@@ -32,7 +40,10 @@ public class Player : MonoBehaviour
         if (collider2D != null)
         {
             disToGround = collider2D.bounds.extents.y;
+
         }
+
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -45,6 +56,9 @@ public class Player : MonoBehaviour
         IsGrounded();
         HandleMovement();
         HandleJump();
+
+        
+        
     }
 
     #region Movimento
@@ -54,11 +68,12 @@ public class Player : MonoBehaviour
         return Physics2D.Raycast(transform.position, -Vector2.up, disToGround + spaceToGround);
     }
 
-    private void HandleMovement()
+    public void HandleMovement()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
+             myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
+            animator.SetBool(boolRun, true);
             if (myRigidbody.transform.localScale.x != -1)
             {
                 myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
@@ -67,11 +82,18 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
+            animator.SetBool(boolRun, true);
             if (myRigidbody.transform.localScale.x != 1)
             {
                 myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
             }
         }
+        else
+        {
+            animator.SetBool(boolRun, false);
+        }
+
+    
 
         if (myRigidbody.velocity.x > 0)
         {
@@ -88,6 +110,7 @@ public class Player : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
         {
             myRigidbody.velocity = Vector2.up * forceJump;
+            animator.SetBool(boolsaltar, true);
         }
     }
     #endregion
