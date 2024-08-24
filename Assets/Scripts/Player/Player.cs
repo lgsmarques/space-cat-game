@@ -26,9 +26,6 @@ public class Player : MonoBehaviour
     public string boolRun = "movendo";
     public string boolsaltar = "saltar";
 
-    
-
-
     public Transform positionTransform;
 
     Vector3 parentScale;
@@ -56,9 +53,6 @@ public class Player : MonoBehaviour
         IsGrounded();
         HandleMovement();
         HandleJump();
-
-        
-        
     }
 
     #region Movimento
@@ -72,8 +66,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-             myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
             animator.SetBool(boolRun, true);
+
             if (myRigidbody.transform.localScale.x != -1)
             {
                 myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
@@ -83,6 +78,7 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
             animator.SetBool(boolRun, true);
+
             if (myRigidbody.transform.localScale.x != 1)
             {
                 myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
