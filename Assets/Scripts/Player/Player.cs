@@ -42,14 +42,11 @@ public class Player : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
-       
     }
 
     private void Start()
     {
         positionTransform = GetComponent<Transform>();
-        
-        
     }
 
     void Update()
@@ -58,9 +55,6 @@ public class Player : MonoBehaviour
         HandleMovement();
         HandleJump();
         HandleAnimation();
-
- 
-
     }
 
     #region Movimento
